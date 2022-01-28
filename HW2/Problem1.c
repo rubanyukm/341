@@ -3,3 +3,9 @@
 
 #include <stdio.h>;
 
+double compute_pi(int n) {
+
+    
+
+    return 0;
+}
