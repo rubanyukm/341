@@ -32,6 +32,36 @@ int is_prime(int n) {
     return tf;
 }
 
+int display_primes(int n) {
+
+    int base = 0, flag, i;
+
+     while (base < n) {
+      flag = 0;
+
+      if (base <= 1) {
+         base++;
+         continue;
+      }
+
+      for (i = 2; i <= base / 2; ++i) {
+
+         if (base % i == 0) {
+            flag = 1;
+            break;
+         }
+      }
+
+      if (flag == 0)
+         printf("%d ", base);
+
+      base++;
+   }
+
+   return 0;
+
+}
+
 int main() {
 
     int number;
@@ -39,10 +69,13 @@ int main() {
     scanf("%d", &number); 
 
     if (is_prime(number) == 1) {
-        printf("The result is: true, is a prime number");
+        printf("The result is: true %d is a prime number", number);
     }
     else {
-        printf("The result is: false, is not a prime number");
+        printf("The result is: false %d is not a prime number", number);
     }
+
+    printf("\nThe prime numbers between 0 and %d are: ", number);
+    display_primes(number);
 
 }
