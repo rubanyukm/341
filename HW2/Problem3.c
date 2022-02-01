@@ -34,25 +34,25 @@ int is_prime(int n) {
 
 int display_primes(int n) {
 
-    int base = 0, flag, i;
+    int base = 0, prime, i;
 
      while (base < n) {
-      flag = 0;
+      prime = 0;
 
       if (base <= 1) {
          base++;
          continue;
       }
 
-      for (i = 2; i <= base / 2; ++i) {
+      for (i = 2; i <= base / 2; i++) {
 
          if (base % i == 0) {
-            flag = 1;
+            prime = 1;
             break;
          }
       }
 
-      if (flag == 0)
+      if (prime == 0)
          printf("%d ", base);
 
       base++;
