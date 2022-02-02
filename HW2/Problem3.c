@@ -31,7 +31,7 @@ int is_prime(int n) {
     return tf;
 }
 
-void display_primesV2(int n) { 
+void display_primes(int n) { 
 
     int i;
 
