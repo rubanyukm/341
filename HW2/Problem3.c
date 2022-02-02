@@ -9,57 +9,39 @@ calls the helper function is_prime.*/
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 int is_prime(int n) {
 
     int i;
-    bool tf;
+    bool tf = 1;
 
-    for (i = 2; i <= (n / 2); i++) {
+    if (n <= 1) {
+        tf = 0;
+    }
+
+    for (i = 2; i <= sqrt(n); i++) {
         
         if (n % i == 0) {
-            tf = false;
+            tf = 0;
+            break;
         }
-        else if (n == 0 || n == 1) {
-            tf = false;
-        }
-        else {
-        tf = true;
-        }
-        break;
     }
     
     return tf;
 }
 
-int display_primes(int n) {
+void display_primesV2(int n) { 
 
-    int base = 0, prime, i;
+    int i;
 
-     while (base < n) {
-      prime = 0;
+    for(i = 0; i < n; i++) {
 
-      if (base <= 1) {
-         base++;
-         continue;
-      }
-
-      for (i = 2; i <= base / 2; i++) {
-
-         if (base % i == 0) {
-            prime = 1;
-            break;
-         }
-      }
-
-      if (prime == 0)
-         printf("%d ", base);
-
-      base++;
-   }
-
-   return 0;
-
+        if(is_prime(i) == 1) {
+            printf("%d ", i);
+        }
+    }
+    
 }
 
 int main() {
