@@ -15,13 +15,19 @@ def compute_pi(n):
 
 def compute_sqrt(x):
     
-    a = float(x) 
+    last = 1.0
+    next = 1.0
+    count = 0
 
-    for i in range(10): 
+    while count < 10:
 
-        x = 0.5 * (x + a / x) 
+        next = 0.5 * (last + x / last)
+        last = next
+        count += 1
 
-    return x
+    sqrt = next
+
+    return sqrt
 
 
 def is_prime(x):
@@ -211,9 +217,9 @@ def main():
             print(compute_pi(number))
 
         elif choice == "2":
-            num = int(input("Enter a number: "))
+            num = float(input("Enter a number: "))
             sqrt = compute_sqrt(num)
-            print("The sqrt of %d is: %f" %(num, sqrt))
+            print("The sqrt of %.3f is: %.3f" %(num, sqrt))
 
         elif choice == "3":
             number = int(input("Enter the number you would like to check: "))
